@@ -37,8 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog',
     'core',
-    'service.apps.ServiceConfig'
+    'contact',
+    'pages.apps.PagesConfig',
+    'service.apps.ServiceConfig',
+    'social.apps.SocialConfig',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social.processors.ctx_dict'
             ],
         },
     },
@@ -109,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
@@ -129,3 +135,20 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# ckeditor
+
+CKEDITOR_CONFIGS={
+    'default':{
+        'toolbar': None
+        # 'toolbar': 'Basic'
+    }
+}
+
+# email config
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'b2903184163254'
+EMAIL_HOST_PASSWORD = '9ea80477886a43'
+EMAIL_PORT = '2525'
